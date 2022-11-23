@@ -10,6 +10,11 @@ contract BlockCycle {
         update();
     }
 
+    /**
+     * problem
+     *  1. 지연 예약 실행이 안돼서, 배포 후 다른 블록에서 한 번 더 실행해야 정상적인 결과 노출
+     *  2. 실제 블록 생성 주기가 변경되는 경우 또한 총 두 번의 실행 끝에 정상적인 결과 노출
+     */
     function update() public returns (uint256, uint256, uint256) {
         uint256 beforeLastUpdateBlock = lastUpdateBlock;
         uint256 beforeLastUpdateTimeStamp = lastUpdateTimeStamp;
